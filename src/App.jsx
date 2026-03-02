@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import WeatherBG from './Component/WeatherBG'
 import { convertTemperature, getHumidityValue, getWindDirection,getVisibilityValue } from './Component/Helper';
 import { HumidityIcon, SunriseIcon, SunsetIcon, VisibilityIcon, WindIcon } from './Component/Icons';
+import Forecast from './Component/Forecast';
 
 const App = () => {
 
@@ -145,7 +146,7 @@ const App = () => {
                 (${getHumidityValue(weather.main.humidity)})`],
 
                 [WindIcon, 'Wind' , `${weather.wind.speed} m/s ${weather.wind.deg ? 
-                `(${getWindDirection(weather.main.humidity)})`: ''}
+                `(${getWindDirection(weather.wind.deg)})`: ''}
                 `],
 
                 [VisibilityIcon, 'Visibility' , getVisibilityValue(weather.visibility)],
@@ -186,7 +187,16 @@ const App = () => {
       </div>
      </div>
 
+        {weather && (
+  <Forecast
+    lat={weather.coord.lat}
+    lon={weather.coord.lon}
+    unit={unit}
+  />
+)}
+
     </div> 
+
   )
 }
 
