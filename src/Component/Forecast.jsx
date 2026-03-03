@@ -110,9 +110,9 @@ const Forecast = ({ lat, lon, unit }) => {
 
   return (
     <div className="mt-10 px-6 pb-10">
-      <h2 className="text-center text-2xl font-bold text-white mb-6">
+      <h1 className="text-center text-2xl font-bold text-black mb-6">
         5 Day Forecast
-      </h2>
+      </h1>
 
       <div className="flex flex-wrap justify-center gap-4">
         {forecast.map((day, index) => {
